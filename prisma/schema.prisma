@@ -1,0 +1,210 @@
+// Schema Prisma - Sistema de Gestão Barbearia Biehl
+// Banco de dados: PostgreSQL via Supabase
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ===================================
+// USUÁRIOS E AUTENTICAÇÃO
+// ===================================
+
+enum Role {
+  ADMIN
+  BARBEIRO
+  RECEPCIONISTA
+}
+
+model User {
+  id          String    @id @default(cuid())
+  nome        String
+  email       String    @unique
+  senhaHash   String    @map("senha_hash")
+  role        Role      @default(RECEPCIONISTA)
+  ativo       Boolean   @default(true)
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  // Relação com barbeiro (se for do tipo BARBEIRO)
+  barbeiro    Barbeiro?
+
+  @@map("users")
+}
+
+// ===================================
+// CLIENTES
+// ===================================
+
+model Cliente {
+  id              String    @id @default(cuid())
+  nome            String
+  email           String?
+  telefone        String
+  dataNascimento  DateTime? @map("data_nascimento")
+  observacoes     String?
+  // Preferências do cliente
+  barbeiroFavorito String?  @map("barbeiro_favorito")
+  produtosUsados  String?   @map("produtos_usados")
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  // Relações
+  agendamentos    Agendamento[]
+
+  @@map("clientes")
+}
+
+// ===================================
+// BARBEIROS
+// ===================================
+
+model Barbeiro {
+  id              String    @id @default(cuid())
+  userId          String    @unique @map("user_id")
+  foto            String?   // URL da foto
+  especialidades  String[]  // Array de especialidades
+  comissaoPercent Float     @default(40) @map("comissao_percent")
+  // Horários de trabalho por dia da semana (JSON)
+  // Formato: { "0": null, "1": {"inicio": "09:00", "fim": "18:00"}, ... }
+  // 0 = domingo, 1 = segunda, ..., 6 = sábado
+  horarios        Json      @default("{}")
+  ativo           Boolean   @default(true)
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  // Relações
+  user            User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  agendamentos    Agendamento[]
+  folgas          Folga[]
+
+  @@map("barbeiros")
+}
+
+// ===================================
+// FOLGAS E FÉRIAS DOS BARBEIROS
+// ===================================
+
+model Folga {
+  id          String    @id @default(cuid())
+  barbeiroId  String    @map("barbeiro_id")
+  data        DateTime
+  motivo      String?
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  barbeiro    Barbeiro  @relation(fields: [barbeiroId], references: [id], onDelete: Cascade)
+
+  @@map("folgas")
+}
+
+// ===================================
+// SERVIÇOS
+// ===================================
+
+model Servico {
+  id              String    @id @default(cuid())
+  nome            String
+  descricao       String?
+  preco           Float
+  duracaoMinutos  Int       @map("duracao_minutos")
+  ativo           Boolean   @default(true)
+  createdAt       DateTime  @default(now()) @map("created_at")
+  updatedAt       DateTime  @updatedAt @map("updated_at")
+
+  // Relações
+  agendamentos    Agendamento[]
+
+  @@map("servicos")
+}
+
+// ===================================
+// AGENDAMENTOS
+// ===================================
+
+enum StatusAgendamento {
+  AGENDADO
+  EM_ANDAMENTO
+  CONCLUIDO
+  CANCELADO
+  FALTOU
+}
+
+model Agendamento {
+  id          String              @id @default(cuid())
+  clienteId   String              @map("cliente_id")
+  barbeiroId  String              @map("barbeiro_id")
+  servicoId   String              @map("servico_id")
+  dataHora    DateTime            @map("data_hora")
+  status      StatusAgendamento   @default(AGENDADO)
+  observacoes String?
+  createdAt   DateTime            @default(now()) @map("created_at")
+  updatedAt   DateTime            @updatedAt @map("updated_at")
+
+  // Relações
+  cliente     Cliente   @relation(fields: [clienteId], references: [id])
+  barbeiro    Barbeiro  @relation(fields: [barbeiroId], references: [id])
+  servico     Servico   @relation(fields: [servicoId], references: [id])
+  receita     Receita?
+
+  @@map("agendamentos")
+}
+
+// ===================================
+// FINANCEIRO
+// ===================================
+
+model Receita {
+  id                String    @id @default(cuid())
+  agendamentoId     String    @unique @map("agendamento_id")
+  valor             Float
+  comissaoBarbeiro  Float     @map("comissao_barbeiro")
+  data              DateTime  @default(now())
+  createdAt         DateTime  @default(now()) @map("created_at")
+
+  agendamento       Agendamento @relation(fields: [agendamentoId], references: [id])
+
+  @@map("receitas")
+}
+
+model Despesa {
+  id          String    @id @default(cuid())
+  descricao   String
+  valor       Float
+  categoria   String    @default("Geral")
+  data        DateTime  @default(now())
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("despesas")
+}
+
+// ===================================
+// CONFIGURAÇÕES DO SISTEMA
+// ===================================
+
+// Armazena configurações como pares chave-valor
+// Ex: nome_barbearia, telefone, horario_abertura, etc.
+model Configuracao {
+  id      String  @id @default(cuid())
+  chave   String  @unique
+  valor   String
+
+  @@map("configuracoes")
+}
+
+// ===================================
+// FERIADOS
+// ===================================
+
+model Feriado {
+  id          String    @id @default(cuid())
+  descricao   String
+  data        DateTime
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  @@map("feriados")
+}

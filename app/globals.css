@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Importar fontes do Google */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Tema escuro por padrão - identidade da barbearia */
+    --background: 0 0% 10%; /* #1a1a1a - carbon */
+    --foreground: 39 33% 93%; /* #f5f0e8 - cream */
+
+    --card: 0 0% 15%; /* #262626 */
+    --card-foreground: 39 33% 93%;
+
+    --popover: 0 0% 13%;
+    --popover-foreground: 39 33% 93%;
+
+    --primary: 40 56% 54%; /* #c9a84c - gold */
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 20%;
+    --secondary-foreground: 39 33% 93%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 40 56% 54%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 39 33% 93%;
+
+    --border: 0 0% 22%;
+    --input: 0 0% 18%;
+    --ring: 40 56% 54%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  /* Títulos com fonte serifada */
+  h1, h2, h3 {
+    @apply font-serif;
+  }
+
+  /* Scrollbar customizada */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c9a84c;
+  }
+}
+
+/* Animação de entrada suave */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
