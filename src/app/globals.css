@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* React Big Calendar */
+.rbc-calendar {
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.rbc-header {
+  padding: 8px;
+  font-weight: 600;
+  font-size: 13px;
+  color: #374151;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+}
+.rbc-today {
+  background-color: #fffbeb !important;
+}
+.rbc-event {
+  border-radius: 4px !important;
+  font-size: 12px !important;
+  padding: 2px 6px !important;
+}
+.rbc-event.PENDENTE {
+  background-color: #f59e0b !important;
+}
+.rbc-event.CONFIRMADO {
+  background-color: #3b82f6 !important;
+}
+.rbc-event.CONCLUIDO {
+  background-color: #10b981 !important;
+}
+.rbc-event.CANCELADO {
+  background-color: #ef4444 !important;
+}
+.rbc-toolbar button {
+  color: #374151;
+  font-size: 14px;
+}
+.rbc-toolbar button:hover {
+  background: #f3f4f6;
+  border-color: #d1d5db;
+}
+.rbc-toolbar button.rbc-active {
+  background: #1a1a2e;
+  color: white;
+  border-color: #1a1a2e;
+}

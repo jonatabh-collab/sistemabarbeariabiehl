@@ -1,0 +1,126 @@
+// Barbearia Biehl — Schema Prisma para Supabase (PostgreSQL)
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ─── Enums ────────────────────────────────────────────────
+
+enum Role {
+  ADMIN
+  BARBEIRO
+  RECEPCIONISTA
+}
+
+enum StatusAgendamento {
+  PENDENTE
+  CONFIRMADO
+  EM_ANDAMENTO
+  CONCLUIDO
+  CANCELADO
+}
+
+// ─── Models ───────────────────────────────────────────────
+
+model User {
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(RECEPCIONISTA)
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  barbeiro Barbeiro?
+}
+
+model Cliente {
+  id             String    @id @default(cuid())
+  nome           String
+  email          String?
+  telefone       String
+  dataNascimento DateTime?
+  observacoes    String?
+  ativo          Boolean   @default(true)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  agendamentos Agendamento[]
+}
+
+model Barbeiro {
+  id             String   @id @default(cuid())
+  userId         String   @unique
+  comissao       Float    @default(50) // percentual de comissão
+  especialidades String[]
+  ativo          Boolean  @default(true)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  agendamentos Agendamento[]
+}
+
+model Servico {
+  id        String   @id @default(cuid())
+  nome      String
+  descricao String?
+  preco     Float
+  duracao   Int // em minutos
+  ativo     Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  itens AgendamentoServico[]
+}
+
+model Agendamento {
+  id              String            @id @default(cuid())
+  clienteId       String
+  barbeiroId      String
+  dataHora        DateTime
+  status          StatusAgendamento @default(PENDENTE)
+  observacoes     String?
+  lembreteEnviado Boolean           @default(false)
+  createdAt       DateTime          @default(now())
+  updatedAt       DateTime          @updatedAt
+
+  cliente    Cliente              @relation(fields: [clienteId], references: [id])
+  barbeiro   Barbeiro             @relation(fields: [barbeiroId], references: [id])
+  servicos   AgendamentoServico[]
+  financeiro Financeiro?
+}
+
+model AgendamentoServico {
+  id            String @id @default(cuid())
+  agendamentoId String
+  servicoId     String
+  preco         Float // preço no momento do agendamento
+
+  agendamento Agendamento @relation(fields: [agendamentoId], references: [id], onDelete: Cascade)
+  servico     Servico     @relation(fields: [servicoId], references: [id])
+}
+
+model Financeiro {
+  id             String    @id @default(cuid())
+  agendamentoId  String    @unique
+  valorTotal     Float
+  comissaoPct    Float // % de comissão aplicada
+  valorBarbeiro  Float // valor que vai para o barbeiro
+  valorBarbearia Float // valor que fica na barbearia
+  formaPagamento String? // dinheiro, pix, cartão, etc.
+  pago           Boolean   @default(false)
+  dataPagamento  DateTime?
+  observacoes    String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  agendamento Agendamento @relation(fields: [agendamentoId], references: [id])
+}
