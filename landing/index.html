@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Barbearia Biehl – Gestão Completa para Barbearias</title>
+  <meta name="description" content="Sistema completo de agendamento online, gestão financeira, comandas e relatórios para barbearias. Substitua o caos do WhatsApp por um sistema profissional." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .gradient-hero { background: linear-gradient(135deg, #0d7377 0%, #14a085 50%, #0f766e 100%); }
+    .gradient-cta  { background: linear-gradient(135deg, #0d7377 0%, #0f766e 100%); }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px rgba(13,115,119,.12); }
+    .feature-card { transition: transform .25s, box-shadow .25s; }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- ─── NAV ─── -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">✂️</span>
+        <span class="font-bold text-teal-700 text-lg">Sistema Barbearia</span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
+        <a href="#funcionalidades" class="hover:text-teal-600">Funcionalidades</a>
+        <a href="#como-funciona" class="hover:text-teal-600">Como Funciona</a>
+        <a href="#preco" class="hover:text-teal-600">Preço</a>
+        <a href="#demo" class="hover:text-teal-600">Demo</a>
+      </div>
+      <a href="#comprar"
+        class="px-5 py-2 bg-teal-600 text-white font-semibold rounded-xl text-sm hover:bg-teal-700 transition">
+        Quero o Sistema
+      </a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="gradient-hero text-white py-24 px-4">
+    <div class="max-w-5xl mx-auto text-center">
+      <span class="inline-block bg-white/15 text-white text-xs font-semibold px-3 py-1 rounded-full mb-6 border border-white/20">
+        🚀 Sistema 100% pronto para uso
+      </span>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+        Chega de agendar<br/>pelo <span class="text-yellow-300">WhatsApp</span>
+      </h1>
+      <p class="text-teal-100 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+        Um sistema completo de gestão para barbearias: agendamento online, controle financeiro, comandas, relatórios e muito mais — tudo em um único lugar.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#comprar"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-teal-700 font-bold rounded-2xl hover:bg-teal-50 transition text-lg shadow-xl">
+          🛒 Comprar Agora
+        </a>
+        <a href="#demo"
+          class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-semibold rounded-2xl hover:bg-white/20 transition text-lg border border-white/25">
+          👀 Ver Demonstração
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-3 gap-6 mt-16 max-w-md mx-auto">
+        <div class="text-center">
+          <p class="text-3xl font-extrabold">3</p>
+          <p class="text-teal-200 text-sm">Apps inclusos</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-extrabold">∞</p>
+          <p class="text-teal-200 text-sm">Agendamentos</p>
+        </div>
+        <div class="text-center">
+          <p class="text-3xl font-extrabold">0</p>
+          <p class="text-teal-200 text-sm">Mensalidade</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── DOR / PROBLEMA ─── -->
+  <section class="py-20 px-4 bg-gray-50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Você se identifica com isso?</h2>
+        <p class="text-gray-500">A realidade de quem ainda não tem um sistema profissional</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="bg-white rounded-2xl p-6 border border-red-100 shadow-sm">
+          <div class="text-3xl mb-3">📱</div>
+          <h3 class="font-bold text-gray-800 mb-2">Caos no WhatsApp</h3>
+          <p class="text-gray-500 text-sm">Mensagens perdidas, horários esquecidos e clientes cancelando na última hora sem aviso.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-red-100 shadow-sm">
+          <div class="text-3xl mb-3">📒</div>
+          <h3 class="font-bold text-gray-800 mb-2">Caderno de papel</h3>
+          <p class="text-gray-500 text-sm">Sem histórico de clientes, sem controle de comissões, sem saber quanto entrou no mês.</p>
+        </div>
+        <div class="bg-white rounded-2xl p-6 border border-red-100 shadow-sm">
+          <div class="text-3xl mb-3">😤</div>
+          <h3 class="font-bold text-gray-800 mb-2">Tempo perdido</h3>
+          <p class="text-gray-500 text-sm">Mais tempo respondendo mensagens do que atendendo clientes. Produtividade no chão.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FUNCIONALIDADES ─── -->
+  <section id="funcionalidades" class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold text-gray-900 mb-3">Tudo que sua barbearia precisa</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Sistema completo com 3 aplicações: painel administrativo, app para clientes e API backend.</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Feature cards -->
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">📅</div>
+          <h3 class="font-bold text-gray-800 mb-2">Agenda Multi-Profissional</h3>
+          <p class="text-gray-500 text-sm">Visualização por dia e semana para vários barbeiros simultaneamente. Bloqueio de horários, encaixe e lista de espera.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">📱</div>
+          <h3 class="font-bold text-gray-800 mb-2">Agendamento Online pelo Cliente</h3>
+          <p class="text-gray-500 text-sm">Seu cliente agenda pelo celular 24h por dia: escolhe o serviço, profissional, data e horário. Zero ligações.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">💰</div>
+          <h3 class="font-bold text-gray-800 mb-2">Controle Financeiro</h3>
+          <p class="text-gray-500 text-sm">Receitas, despesas, formas de pagamento. Saiba exatamente quanto sua barbearia fatura por dia, semana e mês.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">🧾</div>
+          <h3 class="font-bold text-gray-800 mb-2">Comandas Digitais</h3>
+          <p class="text-gray-500 text-sm">Abertura e fechamento de ordens de serviço digitais. Histórico completo de todos os atendimentos.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">📊</div>
+          <h3 class="font-bold text-gray-800 mb-2">Relatórios e KPIs</h3>
+          <p class="text-gray-500 text-sm">Dashboards com indicadores-chave do negócio. Tome decisões com base em dados reais, não em achismo.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">🎁</div>
+          <h3 class="font-bold text-gray-800 mb-2">Combos e Pacotes de Fidelidade</h3>
+          <p class="text-gray-500 text-sm">Crie combos com desconto e pacotes de sessões pré-pagas. Fidelize clientes e garanta receita recorrente.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">👥</div>
+          <h3 class="font-bold text-gray-800 mb-2">Cadastro de Clientes</h3>
+          <p class="text-gray-500 text-sm">Histórico completo de atendimentos por cliente. Saiba quem são seus melhores clientes.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">⏳</div>
+          <h3 class="font-bold text-gray-800 mb-2">Lista de Espera</h3>
+          <p class="text-gray-500 text-sm">Quando a agenda está cheia, clientes entram na lista de espera automaticamente. Nenhum cliente perdido.</p>
+        </div>
+        <div class="feature-card bg-gray-50 rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center text-2xl mb-4">⚙️</div>
+          <h3 class="font-bold text-gray-800 mb-2">Configurações Completas</h3>
+          <p class="text-gray-500 text-sm">Horários de funcionamento, aparência personalizada, notificações e muito mais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── COMO FUNCIONA ─── -->
+  <section id="como-funciona" class="py-20 px-4 bg-teal-700 text-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="text-3xl font-bold mb-3">Como funciona?</h2>
+        <p class="text-teal-200">Do zero ao sistema rodando em minutos</p>
+      </div>
+      <div class="grid md:grid-cols-4 gap-6 text-center">
+        <div>
+          <div class="w-14 h-14 bg-white/15 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">📦</div>
+          <div class="text-lg font-bold mb-2">1. Compra</div>
+          <p class="text-teal-200 text-sm">Você recebe o código-fonte completo por e-mail ou download imediato.</p>
+        </div>
+        <div>
+          <div class="w-14 h-14 bg-white/15 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">💻</div>
+          <div class="text-lg font-bold mb-2">2. Instala</div>
+          <p class="text-teal-200 text-sm">Rode um único comando <code class="bg-white/10 px-1 rounded">npm install</code> e o sistema sobe automaticamente.</p>
+        </div>
+        <div>
+          <div class="w-14 h-14 bg-white/15 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">🎨</div>
+          <div class="text-lg font-bold mb-2">3. Personaliza</div>
+          <p class="text-teal-200 text-sm">Coloque o nome, logo e cores da sua barbearia. Cadastre serviços e profissionais.</p>
+        </div>
+        <div>
+          <div class="w-14 h-14 bg-white/15 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-4">🚀</div>
+          <div class="text-lg font-bold mb-2">4. Usa</div>
+          <p class="text-teal-200 text-sm">Seu sistema está no ar. Clientes já podem agendar e você controla tudo pelo painel.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── O QUE ESTÁ INCLUSO ─── -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold mb-3">O que você recebe</h2>
+        <p class="text-gray-500">Código-fonte completo de 3 aplicações prontas para produção</p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="rounded-2xl border-2 border-teal-200 p-6 bg-teal-50">
+          <div class="text-2xl mb-3">🖥️</div>
+          <h3 class="font-bold text-teal-800 mb-2">App Admin (Painel)</h3>
+          <ul class="text-sm text-teal-700 space-y-1">
+            <li>✅ Agenda multi-profissionais</li>
+            <li>✅ Cadastros completos</li>
+            <li>✅ Financeiro e relatórios</li>
+            <li>✅ Comandas digitais</li>
+            <li>✅ Configurações</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border-2 border-teal-200 p-6 bg-teal-50">
+          <div class="text-2xl mb-3">📱</div>
+          <h3 class="font-bold text-teal-800 mb-2">App Cliente (Web)</h3>
+          <ul class="text-sm text-teal-700 space-y-1">
+            <li>✅ Agendamento online</li>
+            <li>✅ Combos e pacotes</li>
+            <li>✅ Histórico de agendamentos</li>
+            <li>✅ Login por telefone</li>
+            <li>✅ Cancelamento online</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border-2 border-teal-200 p-6 bg-teal-50">
+          <div class="text-2xl mb-3">⚡</div>
+          <h3 class="font-bold text-teal-800 mb-2">Backend (API)</h3>
+          <ul class="text-sm text-teal-700 space-y-1">
+            <li>✅ Node.js + Express</li>
+            <li>✅ Banco SQLite local</li>
+            <li>✅ Autenticação JWT</li>
+            <li>✅ 11 rotas de API</li>
+            <li>✅ Fácil de hospedar</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Extras -->
+      <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200">
+        <h3 class="font-bold text-gray-800 text-xl mb-4 text-center">Bônus inclusos</h3>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 text-xl">📖</span>
+            <div>
+              <p class="font-semibold text-gray-800">Documentação completa</p>
+              <p class="text-gray-500 text-sm">README detalhado com instalação e configuração passo a passo.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 text-xl">🪟</span>
+            <div>
+              <p class="font-semibold text-gray-800">Script de inicialização (Windows)</p>
+              <p class="text-gray-500 text-sm">Arquivo .bat para subir os 3 apps com um duplo-clique.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 text-xl">🗄️</span>
+            <div>
+              <p class="font-semibold text-gray-800">Banco de dados já configurado</p>
+              <p class="text-gray-500 text-sm">Schema SQLite com dados de exemplo para você testar imediatamente.</p>
+            </div>
+          </div>
+          <div class="flex items-start gap-3">
+            <span class="text-teal-500 text-xl">🔒</span>
+            <div>
+              <p class="font-semibold text-gray-800">Licença de uso vitalícia</p>
+              <p class="text-gray-500 text-sm">Pague uma vez e use para sempre. Sem mensalidade, sem surpresas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PREÇO ─── -->
+  <section id="preco" class="py-20 px-4 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-3">Investimento único</h2>
+      <p class="text-gray-500 mb-12">Sem mensalidade. Sem taxa por agendamento. Pague uma vez, use para sempre.</p>
+
+      <div class="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <!-- Plano Base -->
+        <div class="bg-white rounded-3xl border-2 border-gray-200 p-8 text-left">
+          <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">Plano Base</div>
+          <div class="text-4xl font-extrabold text-gray-900 mb-1">R$ 297</div>
+          <div class="text-gray-400 text-sm mb-6">pagamento único</div>
+          <ul class="space-y-3 text-sm text-gray-700 mb-8">
+            <li class="flex gap-2">✅ Código-fonte completo (3 apps)</li>
+            <li class="flex gap-2">✅ Documentação de instalação</li>
+            <li class="flex gap-2">✅ Script de inicialização Windows</li>
+            <li class="flex gap-2">✅ Licença vitalícia (1 barbearia)</li>
+            <li class="flex gap-2">❌ Suporte de instalação</li>
+            <li class="flex gap-2">❌ Personalização visual</li>
+          </ul>
+          <a href="#comprar"
+            class="block w-full text-center py-3 rounded-xl border-2 border-teal-600 text-teal-600 font-bold hover:bg-teal-50 transition">
+            Comprar Plano Base
+          </a>
+        </div>
+
+        <!-- Plano Premium -->
+        <div class="bg-teal-700 rounded-3xl border-2 border-teal-600 p-8 text-left text-white relative overflow-hidden">
+          <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-full">MAIS POPULAR</div>
+          <div class="text-sm font-semibold text-teal-200 uppercase tracking-wide mb-2">Plano Completo</div>
+          <div class="text-4xl font-extrabold mb-1">R$ 497</div>
+          <div class="text-teal-300 text-sm mb-6">pagamento único</div>
+          <ul class="space-y-3 text-sm text-teal-100 mb-8">
+            <li class="flex gap-2">✅ Código-fonte completo (3 apps)</li>
+            <li class="flex gap-2">✅ Documentação de instalação</li>
+            <li class="flex gap-2">✅ Script de inicialização Windows</li>
+            <li class="flex gap-2">✅ Licença vitalícia (uso ilimitado)</li>
+            <li class="flex gap-2">✅ Suporte de instalação via WhatsApp</li>
+            <li class="flex gap-2">✅ Personalização com seu nome/logo</li>
+          </ul>
+          <a href="#comprar"
+            class="block w-full text-center py-3 rounded-xl bg-white text-teal-700 font-bold hover:bg-teal-50 transition">
+            Comprar Plano Completo
+          </a>
+        </div>
+      </div>
+
+      <p class="text-gray-400 text-sm mt-8">Comparado a sistemas SaaS que cobram R$ 200–500/mês, você economiza milhares por ano.</p>
+    </div>
+  </section>
+
+  <!-- ─── DEMO ─── -->
+  <section id="demo" class="py-20 px-4 bg-white">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-3">Veja antes de comprar</h2>
+      <p class="text-gray-500 mb-10">Acesse o ambiente de demonstração ao vivo e teste todas as funcionalidades.</p>
+      <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <a href="#" target="_blank"
+          class="block p-6 bg-teal-50 border-2 border-teal-200 rounded-2xl hover:border-teal-400 transition text-left">
+          <div class="text-2xl mb-2">🖥️</div>
+          <div class="font-bold text-teal-800">Painel Admin</div>
+          <div class="text-sm text-teal-600 mt-1">Email: admin@demo.com • Senha: demo123</div>
+        </a>
+        <a href="#" target="_blank"
+          class="block p-6 bg-teal-50 border-2 border-teal-200 rounded-2xl hover:border-teal-400 transition text-left">
+          <div class="text-2xl mb-2">📱</div>
+          <div class="font-bold text-teal-800">App do Cliente</div>
+          <div class="text-sm text-teal-600 mt-1">Acesse e faça um agendamento de teste</div>
+        </a>
+      </div>
+      <p class="text-gray-400 text-xs mt-6">Os links de demo serão enviados após o contato. Entre em contato pelo WhatsApp abaixo.</p>
+    </div>
+  </section>
+
+  <!-- ─── CTA / COMPRA ─── -->
+  <section id="comprar" class="py-20 px-4 gradient-cta text-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold mb-4">Pronto para profissionalizar sua barbearia?</h2>
+      <p class="text-teal-100 text-lg mb-10">Entre em contato agora e receba o sistema em minutos.</p>
+
+      <div class="grid md:grid-cols-2 gap-4 max-w-lg mx-auto">
+        <!-- WhatsApp -->
+        <a href="https://wa.me/55SEUNUMERO?text=Olá!%20Tenho%20interesse%20no%20Sistema%20Barbearia%20Biehl."
+          target="_blank"
+          class="flex items-center justify-center gap-3 px-6 py-4 bg-green-500 hover:bg-green-600 text-white font-bold rounded-2xl transition text-lg shadow-lg">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.558 4.119 1.534 5.849L0 24l6.338-1.512A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.882 0-3.648-.502-5.173-1.381L3 21.5l.906-3.719A10.01 10.01 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+          Falar no WhatsApp
+        </a>
+
+        <!-- Download brochure -->
+        <a href="./brochura.pdf" download
+          class="flex items-center justify-center gap-3 px-6 py-4 bg-white/15 hover:bg-white/25 text-white font-bold rounded-2xl transition text-lg border border-white/25">
+          📄 Baixar Brochura (PDF)
+        </a>
+      </div>
+
+      <p class="text-teal-200 text-sm mt-8">
+        Também disponível por e-mail:
+        <a href="mailto:contato@seuemail.com.br" class="underline hover:text-white">contato@seuemail.com.br</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="bg-gray-900 text-gray-400 py-10 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span class="text-xl">✂️</span>
+        <span class="font-bold text-white">Sistema Barbearia Biehl</span>
+      </div>
+      <div class="flex gap-6 text-sm">
+        <a href="#funcionalidades" class="hover:text-white">Funcionalidades</a>
+        <a href="#preco" class="hover:text-white">Preço</a>
+        <a href="#comprar" class="hover:text-white">Comprar</a>
+      </div>
+      <p class="text-xs text-gray-600">© 2026 Jonata Biehl. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
